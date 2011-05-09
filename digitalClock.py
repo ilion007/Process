@@ -54,12 +54,15 @@ class DigitalClock(QtGui.QLCDNumber):
 def initUI():
     app = QtGui.QApplication( sys.argv )
     prog = QtGui.QProgressDialog( 'Please wait', QtCore.QString(), 0, 0 )
+    prog.setValue(1)
     prog.setWindowTitle( 'Working')
     prog.show()
     sys.exit( app.exec_() )
 
 def main():
     app = QtGui.QApplication( sys.argv )
+    app.setStyle(QtGui.QStyleFactory.create("QMacStyle"))
+    
     clock = DigitalClock()
     clock.show()
     sys.exit( app.exec_() )    
